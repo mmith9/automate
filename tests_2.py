@@ -81,3 +81,37 @@ for character in message:
 spam={"black":"cat"}
 if "cat" in spam.values():
     print("a")
+
+astring="1234567890"
+alist=list(astring)
+print(enumerate(alist))
+for a,b in enumerate(alist):
+    print(a,b)
+
+#raise Exception("an exception")
+
+import pyinputplus as pyip
+
+try:
+    number=pyip.inputFloat("Jakiś numer?", greaterThan=4, max=10, blank=True, limit=3,timeout=10)
+except pyip.TimeoutException:
+    print("slowpoke!")
+except pyip.RetryLimitException:
+    print("dumb!")
+else:
+    print(type(number))
+    print(number)
+
+#number=pyip.inputFloat("Jakiś numer?", greaterThan=4, max=10, blank=True, limit=3,timeout=10, default=10)
+#print(type(number))
+#print(number)
+
+print("response = pyip.inputNum(allowRegexes=[r'^(i|v|x|l|c|d|m)+$', r'^zero$'])")
+response = pyip.inputNum(allowRegexes=[r'^(i|v|x|l|c|d|m)+$', r'^zero$'])
+print(response)
+print("response = pyip.inputNum(blockRegexes=[r'[02468]$'])")
+response = pyip.inputNum(blockRegexes=[r'[02468]$'])
+
+alist=[1,2,3,4,5]
+blist=alist+[]
+print(id(alist),id(blist))
